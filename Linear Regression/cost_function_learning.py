@@ -1,7 +1,10 @@
 import numpy as np
 import matplotlib as plt
 from lab_utils_uni import plt_intuition, plt_stationary, plt_update_onclick, soup_bowl
-plt.style.use('./deeplearning.mplstyle')
+from pathlib import Path
+
+STYLE_PATH = Path(__file__).resolve().parent / 'deeplearning.mplstyle'
+plt.style.use(str(STYLE_PATH))
 
 x_train = np.array([1.0,2.0])
 y_train = np.array([300.0,500.0])

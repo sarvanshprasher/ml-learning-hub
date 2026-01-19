@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
-plt.style.use('./deeplearning.mplstyle')
+STYLE_PATH = Path(__file__).resolve().parent / 'deeplearning.mplstyle'
+plt.style.use(str(STYLE_PATH))
 
 # %%
 x_train = np.array([1.0, 2.0])

@@ -6,7 +6,19 @@ lab_utils_common.py
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.style.use('./deeplearning.mplstyle')
+from pathlib import Path
+
+# Style relative to THIS file's directory
+_STYLE_PATH = Path(__file__).resolve().parent / 'deeplearning.mplstyle'
+
+
+try:
+    plt.style.use(str(_STYLE_PATH))
+except OSError:
+    # Fallback to a built-in style to avoid crashing on import
+    plt.style.use('seaborn-v0_8')  # or 'ggplot', 'bmh', etc.
+
+
 dlblue = '#0096ff'; dlorange = '#FF9300'; dldarkred='#C00000'; dlmagenta='#FF40FF'; dlpurple='#7030A0';
 dlcolors = [dlblue, dlorange, dldarkred, dlmagenta, dlpurple]
 dlc = dict(dlblue = '#0096ff', dlorange = '#FF9300', dldarkred='#C00000', dlmagenta='#FF40FF', dlpurple='#7030A0')
